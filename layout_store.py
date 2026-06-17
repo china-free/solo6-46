@@ -59,13 +59,16 @@ def save_layout(name, windows, monitors=None, hotkey=""):
             existing = i
             break
 
+    old_hotkey = layouts[existing]["hotkey"] if existing is not None else ""
+    effective_hotkey = hotkey if hotkey else old_hotkey
+
     entry = {
         "name": name,
         "created_at": layouts[existing]["created_at"] if existing is not None else now,
         "updated_at": now,
         "windows": windows,
         "monitors": monitors or [],
-        "hotkey": hotkey,
+        "hotkey": effective_hotkey,
     }
 
     if existing is not None:
