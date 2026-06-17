@@ -1,0 +1,476 @@
+[
+  {
+    "name": "工作模式_v2",
+    "created_at": "2026-06-18 03:33:44",
+    "updated_at": "2026-06-18 03:33:44",
+    "windows": [
+      {
+        "hwnd": 920264,
+        "title": "MINGW64:/c/Users/User/Desktop                                                  ",
+        "process_name": "mintty.exe",
+        "left": 447,
+        "top": 147,
+        "width": 599,
+        "height": 359,
+        "show_cmd": 1,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 0.34921875,
+          "rel_top": 0.18375,
+          "rel_right": 0.8171875,
+          "rel_bottom": 0.6325,
+          "rel_width": 0.46796875,
+          "rel_height": 0.44875,
+          "abs_width": 599,
+          "abs_height": 359
+        }
+      },
+      {
+        "hwnd": 3804022,
+        "title": "MINGW64:/c/Users/User/Desktop                                                  ",
+        "process_name": "mintty.exe",
+        "left": 655,
+        "top": 263,
+        "width": 591,
+        "height": 349,
+        "show_cmd": 1,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 0.51171875,
+          "rel_top": 0.32875,
+          "rel_right": 0.9734375,
+          "rel_bottom": 0.765,
+          "rel_width": 0.46171875,
+          "rel_height": 0.43625,
+          "abs_width": 591,
+          "abs_height": 349
+        }
+      },
+      {
+        "hwnd": 3478204,
+        "title": "MINGW64:/c/Users/User/Desktop                                                  ",
+        "process_name": "mintty.exe",
+        "left": 123,
+        "top": 123,
+        "width": 591,
+        "height": 349,
+        "show_cmd": 1,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 0.09609375,
+          "rel_top": 0.15375,
+          "rel_right": 0.5578125,
+          "rel_bottom": 0.59,
+          "rel_width": 0.46171875,
+          "rel_height": 0.43625,
+          "abs_width": 591,
+          "abs_height": 349
+        }
+      },
+      {
+        "hwnd": 3346600,
+        "title": "MINGW64:/d/solor-06/48/solo6-48                                                  ",
+        "process_name": "mintty.exe",
+        "left": 3005,
+        "top": 370,
+        "width": 622,
+        "height": 409,
+        "show_cmd": 1,
+        "monitor": {
+          "index": 1,
+          "left": 2560,
+          "top": 0,
+          "width": 1920,
+          "height": 1080,
+          "is_primary": false
+        },
+        "relative_position": {
+          "rel_left": 0.23177083333333334,
+          "rel_top": 0.3425925925925926,
+          "rel_right": 0.5557291666666667,
+          "rel_bottom": 0.7212962962962963,
+          "rel_width": 0.32395833333333335,
+          "rel_height": 0.3787037037037037,
+          "abs_width": 622,
+          "abs_height": 409
+        }
+      },
+      {
+        "hwnd": 3279488,
+        "title": "remote: error: File node_modules/electron/dist/electron.exe is 180.04 MB; this exceeds GitHub's file size limit of 100.00 MB_百度搜索 和另外 7 个页面 - 个人 - Microsoft​ Edge",
+        "process_name": "msedge.exe",
+        "left": -7,
+        "top": -7,
+        "width": 1293,
+        "height": 765,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": -0.00546875,
+          "rel_top": -0.00875,
+          "rel_right": 1.0046875,
+          "rel_bottom": 0.9475,
+          "rel_width": 1.01015625,
+          "rel_height": 0.95625,
+          "abs_width": 1293,
+          "abs_height": 765
+        }
+      },
+      {
+        "hwnd": 856136,
+        "title": "solo6-48 - 文件资源管理器",
+        "process_name": "explorer.exe",
+        "left": 2552,
+        "top": -8,
+        "width": 1936,
+        "height": 1048,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.99375,
+          "rel_top": -0.01,
+          "rel_right": 3.50625,
+          "rel_bottom": 1.3,
+          "rel_width": 1.5125,
+          "rel_height": 1.31,
+          "abs_width": 1936,
+          "abs_height": 1048
+        }
+      },
+      {
+        "hwnd": 8587076,
+        "title": "guiji.md - solor-06 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": -16000,
+        "top": -16000,
+        "width": 157,
+        "height": 25,
+        "show_cmd": 2,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": -12.5,
+          "rel_top": -20.0,
+          "rel_right": -12.37734375,
+          "rel_bottom": -19.96875,
+          "rel_width": 0.12265625,
+          "rel_height": 0.03125,
+          "abs_width": 157,
+          "abs_height": 25
+        }
+      },
+      {
+        "hwnd": 1968918,
+        "title": "main.py - solo6-47 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": 2547,
+        "top": -13,
+        "width": 1946,
+        "height": 1058,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.98984375,
+          "rel_top": -0.01625,
+          "rel_right": 3.51015625,
+          "rel_bottom": 1.30625,
+          "rel_width": 1.5203125,
+          "rel_height": 1.3225,
+          "abs_width": 1946,
+          "abs_height": 1058
+        }
+      },
+      {
+        "hwnd": 1640414,
+        "title": "test_analyzer.py - solo6-45 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": 2547,
+        "top": -13,
+        "width": 1946,
+        "height": 1058,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.98984375,
+          "rel_top": -0.01625,
+          "rel_right": 3.51015625,
+          "rel_bottom": 1.30625,
+          "rel_width": 1.5203125,
+          "rel_height": 1.3225,
+          "abs_width": 1946,
+          "abs_height": 1058
+        }
+      },
+      {
+        "hwnd": 1116150,
+        "title": "_test_enhanced.py - solo6-46 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": 2547,
+        "top": -13,
+        "width": 1946,
+        "height": 1058,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.98984375,
+          "rel_top": -0.01625,
+          "rel_right": 3.51015625,
+          "rel_bottom": 1.30625,
+          "rel_width": 1.5203125,
+          "rel_height": 1.3225,
+          "abs_width": 1946,
+          "abs_height": 1058
+        }
+      },
+      {
+        "hwnd": 3016380,
+        "title": "App.jsx - solo6-50 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": 2547,
+        "top": -13,
+        "width": 1946,
+        "height": 1058,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.98984375,
+          "rel_top": -0.01625,
+          "rel_right": 3.51015625,
+          "rel_bottom": 1.30625,
+          "rel_width": 1.5203125,
+          "rel_height": 1.3225,
+          "abs_width": 1946,
+          "abs_height": 1058
+        }
+      },
+      {
+        "hwnd": 4327418,
+        "title": "main_window.py - solo6-49 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": 2547,
+        "top": -13,
+        "width": 1946,
+        "height": 1058,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.98984375,
+          "rel_top": -0.01625,
+          "rel_right": 3.51015625,
+          "rel_bottom": 1.30625,
+          "rel_width": 1.5203125,
+          "rel_height": 1.3225,
+          "abs_width": 1946,
+          "abs_height": 1058
+        }
+      },
+      {
+        "hwnd": 2558810,
+        "title": "app.js - solo6-48 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": 2547,
+        "top": -13,
+        "width": 1946,
+        "height": 1058,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.98984375,
+          "rel_top": -0.01625,
+          "rel_right": 3.51015625,
+          "rel_bottom": 1.30625,
+          "rel_width": 1.5203125,
+          "rel_height": 1.3225,
+          "abs_width": 1946,
+          "abs_height": 1058
+        }
+      },
+      {
+        "hwnd": 528188,
+        "title": "file.txt - Notepad",
+        "process_name": "notepad.exe",
+        "left": -16000,
+        "top": -16000,
+        "width": 157,
+        "height": 25,
+        "show_cmd": 2,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": -12.5,
+          "rel_top": -20.0,
+          "rel_right": -12.37734375,
+          "rel_bottom": -19.96875,
+          "rel_width": 0.12265625,
+          "rel_height": 0.03125,
+          "abs_width": 157,
+          "abs_height": 25
+        }
+      },
+      {
+        "hwnd": 526780,
+        "title": "nopass.txt - L1 - Trae CN",
+        "process_name": "trae cn.exe",
+        "left": 2547,
+        "top": -13,
+        "width": 1946,
+        "height": 1058,
+        "show_cmd": 3,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": 1.98984375,
+          "rel_top": -0.01625,
+          "rel_right": 3.51015625,
+          "rel_bottom": 1.30625,
+          "rel_width": 1.5203125,
+          "rel_height": 1.3225,
+          "abs_width": 1946,
+          "abs_height": 1058
+        }
+      },
+      {
+        "hwnd": 198564,
+        "title": "飞书",
+        "process_name": "feishu.exe",
+        "left": -16000,
+        "top": -16000,
+        "width": 157,
+        "height": 25,
+        "show_cmd": 2,
+        "monitor": {
+          "index": 0,
+          "left": 0,
+          "top": 0,
+          "width": 1280,
+          "height": 800,
+          "is_primary": true
+        },
+        "relative_position": {
+          "rel_left": -12.5,
+          "rel_top": -20.0,
+          "rel_right": -12.37734375,
+          "rel_bottom": -19.96875,
+          "rel_width": 0.12265625,
+          "rel_height": 0.03125,
+          "abs_width": 157,
+          "abs_height": 25
+        }
+      }
+    ],
+    "monitors": [
+      {
+        "index": 0,
+        "left": 0,
+        "top": 0,
+        "width": 1280,
+        "height": 800,
+        "is_primary": true
+      },
+      {
+        "index": 1,
+        "left": 2560,
+        "top": 0,
+        "width": 1920,
+        "height": 1080,
+        "is_primary": false
+      }
+    ],
+    "hotkey": ""
+  }
+]

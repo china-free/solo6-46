@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
     QTreeWidget, QTreeWidgetItem, QLabel, QInputDialog, QMessageBox,
     QGroupBox, QSplitter, QStatusBar, QShortcut, QAbstractItemView,
-    QHeaderView,
+    QHeaderView, QComboBox,
 )
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QKeySequence, QIcon, QFont, QColor
@@ -121,6 +121,32 @@ QLabel#titleTag {
     font-weight: bold;
     color: #cba6f7;
 }
+QComboBox {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 5px;
+    padding: 5px 12px;
+    min-height: 22px;
+}
+QComboBox:hover {
+    border-color: #89b4fa;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 24px;
+}
+QComboBox QAbstractItemView {
+    background-color: #181825;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    selection-background-color: #45475a;
+    padding: 4px;
+}
+QLabel#strategyLabel {
+    color: #89b4fa;
+    font-weight: bold;
+}
 """
 
 
@@ -210,6 +236,22 @@ class MainWindow(QMainWindow):
         btn_row2.addWidget(btn_refresh)
         layout_vbox.addLayout(btn_row2)
 
+        strategy_row = QHBoxLayout()
+        strategy_label = QLabel("恢复策略：")
+        strategy_label.setObjectName("strategyLabel")
+        strategy_row.addWidget(strategy_label)
+        self._strategy_combo = QComboBox()
+        self._strategy_combo.addItem("智能平衡（推荐）", "balanced")
+        self._strategy_combo.addItem("等比例缩放（适配分辨率）", "proportional")
+        self._strategy_combo.addItem("保持窗口尺寸（仅映射位置）", "fixed_size")
+        self._strategy_combo.setToolTip(
+            "智能平衡：窗口大小不超过原尺寸也不小于等比例缩放结果，自动取舍\n"
+            "等比例缩放：窗口随显示器分辨率等比例缩放\n"
+            "保持窗口尺寸：仅根据相对位置映射到目标显示器，尺寸保持不变"
+        )
+        strategy_row.addWidget(self._strategy_combo, 1)
+        layout_vbox.addLayout(strategy_row)
+
         splitter.addWidget(layout_group)
 
         window_group = QGroupBox("当前窗口")
@@ -217,8 +259,8 @@ class MainWindow(QMainWindow):
         window_vbox.setContentsMargins(8, 20, 8, 8)
 
         self._window_tree = QTreeWidget()
-        self._window_tree.setHeaderLabels(["窗口标题", "进程", "位置", "大小"])
-        self._window_tree.setColumnCount(4)
+        self._window_tree.setHeaderLabels(["窗口标题", "进程", "位置", "大小", "所在显示器"])
+        self._window_tree.setColumnCount(5)
         self._window_tree.setAlternatingRowColors(True)
         self._window_tree.setSelectionMode(QAbstractItemView.NoSelection)
         self._window_tree.setRootIsDecorated(False)
@@ -227,6 +269,7 @@ class MainWindow(QMainWindow):
         w_header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
         w_header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
         w_header.setSectionResizeMode(3, QHeaderView.ResizeToContents)
+        w_header.setSectionResizeMode(4, QHeaderView.ResizeToContents)
 
         btn_refresh_win = QPushButton("🔄 刷新窗口")
         btn_refresh_win.clicked.connect(self._refresh_windows)
@@ -260,17 +303,24 @@ class MainWindow(QMainWindow):
     def _refresh_windows(self):
         self._window_tree.clear()
         windows = window_manager.enumerate_windows()
+        monitors = window_manager.get_current_monitors()
         for w in windows:
             pos_str = f"({w['left']}, {w['top']})"
             size_str = f"{w['width']} × {w['height']}"
+            monitor = window_manager.find_monitor_for_window(w["left"], w["top"], monitors)
+            monitor_str = "未知"
+            if monitor:
+                primary_tag = " 主" if monitor["is_primary"] else ""
+                monitor_str = f"显示器 {monitor['index'] + 1}{primary_tag} ({monitor['width']}×{monitor['height']})"
             item = QTreeWidgetItem([
                 w["title"],
                 w.get("process_name", ""),
                 pos_str,
                 size_str,
+                monitor_str,
             ])
             self._window_tree.addTopLevelItem(item)
-        self._statusbar.showMessage(f"检测到 {len(windows)} 个可见窗口")
+        self._statusbar.showMessage(f"检测到 {len(windows)} 个可见窗口，{len(monitors)} 台显示器")
 
     def _refresh_layouts(self):
         self._layout_tree.clear()
@@ -296,12 +346,14 @@ class MainWindow(QMainWindow):
         if not ok or not name.strip():
             return
         name = name.strip()
-        windows = window_manager.capture_layout()
-        monitors = monitor_info.get_monitor_details()
+        windows, monitors = window_manager.capture_layout()
         layout_store.save_layout(name, windows, monitors)
         self._refresh_layouts()
         self._register_hotkeys_from_store()
-        self._statusbar.showMessage(f"布局「{name}」已保存，包含 {len(windows)} 个窗口")
+        monitor_count = len(monitors)
+        self._statusbar.showMessage(
+            f"布局「{name}」已保存，{monitor_count} 台显示器，{len(windows)} 个窗口"
+        )
 
     def _on_restore_layout(self):
         name = self._get_selected_layout_name()
@@ -320,9 +372,42 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "错误", f"找不到布局「{name}」")
             return
         windows = layout.get("windows", [])
-        restored, skipped = window_manager.restore_layout(windows)
+        saved_monitors = layout.get("monitors", [])
+        strategy = self._strategy_combo.currentData()
+        result = window_manager.restore_layout(
+            windows, saved_monitors=saved_monitors, resize_strategy=strategy
+        )
+        restored = result["restored"]
+        skipped = result["skipped"]
+        remapped = result["remapped"]
+        match_reasons = result.get("match_reasons", {})
+
+        reason_text = ""
+        if remapped > 0:
+            reason_map = {
+                "primary_exact": "主屏精确匹配",
+                "primary_matched": "主屏匹配",
+                "index_exact": "索引精确匹配",
+                "index_matched": "索引匹配",
+                "resolution_exact_primary": "分辨率+主屏匹配",
+                "resolution_exact": "分辨率匹配",
+                "primary_fallback": "主屏回退",
+                "index_fallback": "索引回退",
+                "primary_default": "主屏默认",
+                "first_default": "第一屏默认",
+                "legacy_clamped": "旧版坐标修正",
+            }
+            details = []
+            for k, v in match_reasons.items():
+                label = reason_map.get(k, k)
+                details.append(f"{label}×{v}")
+            if details:
+                reason_text = "  显示器重映射：" + "，".join(details)
+
         self._statusbar.showMessage(
-            f"布局「{name}」已恢复：{restored} 个窗口成功，{skipped} 个窗口跳过（未运行）"
+            f"布局「{name}」：成功 {restored} 个，跳过 {skipped} 个，"
+            f"重映射 {remapped} 个{reason_text}",
+            8000,
         )
 
     def _on_delete_layout(self):
