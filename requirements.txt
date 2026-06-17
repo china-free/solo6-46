@@ -1,0 +1,4 @@
+PyQt5>=5.15
+pywin32>=305
+pynput>=1.7.6
+psutil>=5.9
